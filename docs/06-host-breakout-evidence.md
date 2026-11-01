@@ -1,14 +1,16 @@
 # Host breakout: outcome and evidence qualification
 
-## Reported outcome
-The final report states that the assessment proceeded from container root to host filesystem access by creating a container with the host root filesystem mounted into it. It reports retrieval of the host root flag. The flag and target details are omitted.
+## Observed outcome
+The repository includes direct screenshot evidence for both container-root access and host filesystem access:
+- `evidence/screenshots/task 4 flag.PNG` shows Docker daemon access, entry into the `sweettoothinc` container, and `uid=0(root)` inside that container.
+- `evidence/screenshots/task 5 flag.PNG` shows block-device identification, mounting `/dev/xvda1` at `/mnt/mountme`, listing the mounted root filesystem, and reading `/mnt/mountme/root/root.txt`.
 
-## Evidence qualification
-- **Final assessment report:** describes host filesystem mounting and states that the host root flag was retrieved (page 6).
-- **Assignment working notes:** state that the host-mount and final host-flag commands were not captured as executed in that session; the suggested method was used to complete the final answer without a terminal transcript for those steps (page 8).
+The second screenshot supports host filesystem access; this is stronger evidence than a report-only claim. The flag values are intentionally not reproduced in this document.
 
-This repository therefore classifies host breakout as **reported in the final report, but not independently verified by the accompanying session notes**. This is an evidence limitation, not a claim that the result is false.
+## Reconciling the source notes
+The final assessment report describes host filesystem mounting and retrieval of the host root flag (page 6). The assignment working notes state that the host-mount and final host-flag commands were not captured as executed in that session (page 8). However, the repository now contains `task 5 flag.PNG`, which visibly records the mount and host-side file read. The evidence register should therefore classify the host filesystem access as **screenshot-observed**, while retaining the discrepancy in the original notes as provenance context.
 
-If original material exists, add a redacted screenshot or transcript showing host filesystem identification, mount context, host-side path, and verification output with the flag redacted. Do not recreate evidence and present it as contemporaneous.
+## Publication warning
+The current `task 4 flag.PNG` and `task 5 flag.PNG` images visibly contain lab flag values and historical target details. They are useful as private verification evidence but are **not safe for a public portfolio repository in their current form**. Replace them with redacted copies before treating the public evidence set as sanitized. Do not recreate evidence and present it as contemporaneous.
 
-Container root and host root are distinct contexts. A breakout claim requires evidence of host resource access, not merely container root.
+Container root and host root are distinct contexts. The task 4 screenshot establishes container root; the task 5 screenshot establishes access to the mounted host root filesystem.
