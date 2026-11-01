@@ -27,9 +27,12 @@ A technical portfolio case study documenting an authorized TryHackMe Sweettooth 
 - [Timeline](notes/timeline.md)
 - [Evidence register](notes/evidence-register.md)
 
-Add sanitized screenshots to `evidence/screenshots/`. Never commit flags, credentials, target IPs, tokens, or unredacted source reports.
+## Evidence and publication status
+Nine screenshots are present in `evidence/screenshots/`. The task 4 screenshot documents Docker daemon access and container-root execution. The task 5 screenshot documents mounting the host root filesystem and reading a host-side file.
+
+**Important:** the current task 4 and task 5 screenshots expose lab flag values and historical target details. Keep original evidence privately and replace public copies with redacted versions before presenting this repository as sanitized. Never publish flags, credentials, target IPs, tokens, or unredacted source reports.
 
 ## Evidence qualification
-The final report states that host filesystem access and retrieval of the host flag were achieved. The accompanying assignment notes say the final host-mount sequence was not captured as executed in that session. This repository labels host breakout as **reported in the final report, but not independently verified by the accompanying session notes**. Do not present it as screenshot-verified unless original evidence is added.
+The accompanying assignment notes say the final host-mount sequence was not captured in the original working session. The uploaded task 5 screenshot now provides direct visual evidence of the mount and host-side file read. The host filesystem access is therefore classified as screenshot-observed, while the original notes discrepancy is retained in `docs/06-host-breakout-evidence.md`.
 
 This is an independent learning record, not an official TryHackMe publication.
